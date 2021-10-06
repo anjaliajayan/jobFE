@@ -1,0 +1,38 @@
+<!-- <nav class="nav">
+  <div class="container">
+    <div class="logo">
+      <a href="https://skyloov.com/"><img src="./../../assets/images/SKYLOOV_ LOGO.png" alt=""
+          style="width: 200px;" /></a>
+          <h3 class="customise-color">Welcome to Job Portal...</h3>
+    </div>
+    <div id="mainListDiv" class="main_list">
+      <i class="fa fa-sign-out customise-color" (click)="logout()" aria-hidden="true">Logout</i>
+    </div>
+  </div>
+</nav>
+<section class="home">
+    
+</section> -->
+<div class="container-fluid">
+  <div class="navbar">
+      <img src="../../assets/images/SKYLOOV_ LOGO.png" alt="logo" class="logo">
+      <nav>
+        <ul id="menu-list">
+            <li><a routerLink="/dashBoard/user-profile" routerLinkActive="active" >Users Profile</a></li>
+            <li><a routerLink="/dashBoard/admin-profile">Admin Portal</a></li>
+            <li><a href="">Queries</a></li>
+            <li><a href="">logout</a></li>
+        </ul>
+      </nav>
+      <img src="../../assets/images/menu.png" alt="menu" class="menu-icon" (click)="togglemenu()">
+  </div>
+<div class="row justify-content-center">
+  <div class="container">
+  <router-outlet></router-outlet>
+</div>
+  <div class="social-links">
+      <img src="../../assets/images/fb.png" alt="fb">
+      <img src="../../assets/images/tw.png" alt="tw">
+      <img src="../../assets/images/ig.png" alt="lg">
+  </div>
+</div>

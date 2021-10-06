@@ -1,0 +1,83 @@
+
+
+<h3>Please complete your profile</h3>
+<div class="container">
+
+    <form [formGroup]="usersProfileForm">
+        <small>User work experience</small>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputState">Job Title</label>
+                <select id="inputState" class="form-control" formControlName="jobTitle">
+                  <option selected>Choose...</option>
+                  <option>Front End developer</option>
+                  <option>Back End Developer</option>
+                  <option>Full stack Developer</option>
+                  <option>MERN stack Developer</option>
+                </select>
+              </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">company</label>
+            <input type="text" formControlName="company" class="form-control" id="inputPassword4" placeholder="company">
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputindustry">Industry</label>
+                <select id="inputindustry" class="form-control" formControlName="industry">
+                  <option selected>Choose...</option>
+                  <option>Hospitality</option>
+                  <option>Engineering</option>
+                </select>
+              </div>
+          <div class="form-group col-md-6">
+            <label for="inputCountry">Country</label>
+            <select id="inputCountry" class="form-control" formControlName="country">
+                <option selected>Choose...</option>
+                <option>United Arab Emirates</option>
+              </select>
+          </div>
+        </div>
+<hr>
+        <small>User Education</small>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputhIGH5">Highlevel</label>
+                <input type="text" formControlName="highlevel" class="form-control" id="inputhIGH5" placeholder="Highlevel">
+              </div>
+          <div class="form-group col-md-6">
+            <label for="inputuniversity4">University</label>
+            <input type="text" formControlName="university" class="form-control" id="inputuniversity4" placeholder="University">
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPassword6">Date Completed</label>
+                <input type="date" formControlName="dateComplete" class="form-control" id="inputPassword6" placeholder="Date completed">
+              </div>
+          <div class="form-group col-md-6">
+            <label for="inputNationality">Nationality</label>
+            <select id="inputNationality" formControlName="nationality"  class="form-control">
+                <option selected>Choose...</option>
+                <option>Indian</option>
+              </select>
+          </div>
+        </div>
+        <hr>
+        <small>User Skills</small>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCskill">Skills</label>
+                <select id="inputskill"  formControlName="skills"  class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Java</option>
+                    <option>React.js</option>
+                    <option>Angular</option>
+                    <option>Node.js</option>
+                  </select>
+              </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="saveProfile()">Save</button>
+      </form>
+</div>
+
