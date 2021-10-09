@@ -219,6 +219,13 @@ margin-bottom: 5px;
         font-size: 15px;
     }
 }
+.bg-settings{
+    background-size: cover;
+    background-image: url('../../assets/images/h1_hero.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    
 
+}
 
 /* register */

@@ -14,6 +14,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { UsersWelcomeComponent } from './users-welcome/users-welcome.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { UsersWelcomeComponent } from './users-welcome/users-welcome.component';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    Ng2SearchPipeModule,
     AppRoutingModule
 
   ],

@@ -34,3 +34,7 @@
     background: #46b3e6;
     z-index: -1;
 }
+.portal_logo{
+    border-radius: 150px;
+    margin-top: 10px;
+}

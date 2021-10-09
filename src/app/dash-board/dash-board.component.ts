@@ -12,11 +12,14 @@ import { LoginService } from '../_services/login.service';
 })
 export class DashBoardComponent implements OnInit {
   logoutSubscription:Subscription;
+  loginedRole: any;
   constructor(private router:Router,
     private authService:AuthenticationService,
     private loginService:LoginService) { }
 
   ngOnInit(): void {
+    this.loginedRole=JSON.parse(localStorage.getItem('user')).role;
+    
   }
 
   logout =()=>{

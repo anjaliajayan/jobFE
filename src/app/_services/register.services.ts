@@ -15,7 +15,7 @@ export class RegisterService {
        
     }
     public register(payload) {
-        return this.http.post(`${this.url}/users/register`,payload);
+        return this.http.post(`${this.url}/user/sign-up`,payload);
      
     }
     

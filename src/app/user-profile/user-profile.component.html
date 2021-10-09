@@ -1,83 +1,261 @@
+<div class="container-fluid">
+  <div class="row justify-content-center sub-tabs">
+    <button class="tabs-btn" type="button" (click)="switchTabs('profile')">Users Profile</button>
+    <button class="tabs-btn" type="button" (click)="switchTabs('search')">Job Search</button>
+    <button class="tabs-btn" type="button" (click)="switchTabs('applied')">Applied Jobs</button>
+  </div>
+  <div class="row">
+    <div class="col-12" *ngIf="profiletabShow === true">
+      <h3>Please complete your profile</h3>
+      <div class="container">
 
-
-<h3>Please complete your profile</h3>
-<div class="container">
-
-    <form [formGroup]="usersProfileForm">
-        <small>User work experience</small>
-        <div class="form-row">
+        <form [formGroup]="usersProfileForm">
+          <small>User work experience</small>
+          <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputState">Job Title</label>
-                <select id="inputState" class="form-control" formControlName="jobTitle">
-                  <option selected>Choose...</option>
-                  <option>Front End developer</option>
-                  <option>Back End Developer</option>
-                  <option>Full stack Developer</option>
-                  <option>MERN stack Developer</option>
-                </select>
-              </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">company</label>
-            <input type="text" formControlName="company" class="form-control" id="inputPassword4" placeholder="company">
+              <label for="inputState">Job Title</label>
+              <select id="inputState" class="form-control" formControlName="jobTitle">
+                <option selected>Choose...</option>
+                <option>Front End developer</option>
+                <option>Back End Developer</option>
+                <option>Full stack Developer</option>
+                <option>MERN stack Developer</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">company</label>
+              <input type="text" formControlName="company" class="form-control" id="inputPassword4"
+                placeholder="company">
+            </div>
           </div>
-        </div>
-        <div class="form-row">
+          <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputindustry">Industry</label>
-                <select id="inputindustry" class="form-control" formControlName="industry">
-                  <option selected>Choose...</option>
-                  <option>Hospitality</option>
-                  <option>Engineering</option>
-                </select>
-              </div>
-          <div class="form-group col-md-6">
-            <label for="inputCountry">Country</label>
-            <select id="inputCountry" class="form-control" formControlName="country">
+              <label for="inputindustry">Industry</label>
+              <select id="inputindustry" class="form-control" formControlName="industry">
+                <option selected>Choose...</option>
+                <option>Hospitality</option>
+                <option>Engineering</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCountry">Country</label>
+              <select id="inputCountry" class="form-control" formControlName="country">
                 <option selected>Choose...</option>
                 <option>United Arab Emirates</option>
               </select>
+            </div>
           </div>
-        </div>
-<hr>
-        <small>User Education</small>
-        <div class="form-row">
+          <hr>
+          <small>User Education</small>
+          <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputhIGH5">Highlevel</label>
-                <input type="text" formControlName="highlevel" class="form-control" id="inputhIGH5" placeholder="Highlevel">
-              </div>
-          <div class="form-group col-md-6">
-            <label for="inputuniversity4">University</label>
-            <input type="text" formControlName="university" class="form-control" id="inputuniversity4" placeholder="University">
+              <label for="inputhIGH5">Highlevel</label>
+              <input type="text" formControlName="highlevel" class="form-control" id="inputhIGH5"
+                placeholder="Highlevel">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputuniversity4">University</label>
+              <input type="text" formControlName="university" class="form-control" id="inputuniversity4"
+                placeholder="University">
+            </div>
           </div>
-        </div>
-        <div class="form-row">
+          <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputPassword6">Date Completed</label>
-                <input type="date" formControlName="dateComplete" class="form-control" id="inputPassword6" placeholder="Date completed">
-              </div>
-          <div class="form-group col-md-6">
-            <label for="inputNationality">Nationality</label>
-            <select id="inputNationality" formControlName="nationality"  class="form-control">
+              <label for="inputPassword6">Date Completed</label>
+              <input type="date" formControlName="dateComplete" class="form-control" id="inputPassword6"
+                placeholder="Date completed">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputNationality">Nationality</label>
+              <select id="inputNationality" formControlName="nationality" class="form-control">
                 <option selected>Choose...</option>
                 <option>Indian</option>
               </select>
+            </div>
+          </div>
+          <hr>
+          <small>User Skills</small>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCskill">Skills</label>
+              <select id="inputskill" formControlName="skills" class="form-control">
+                <option selected>Choose...</option>
+                <option>Java</option>
+                <option>React.js</option>
+                <option>Angular</option>
+                <option>Node.js</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="saveProfile()">Save</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-12" *ngIf="jobSearchTab === true">
+
+      <!-- <form [formGroup]="jobSearchForm" class="search-box">
+        <div class="input-form">
+          <input type="text" formControlName="jobKeyWord" placeholder="Job Tittle or keyword" tabindex="0">
+        </div>
+        <div class="select-form">
+          <div class="select-itms">
+            <select name="select"  formControlName="jobField" placeholder="Industry" class="nice-select" id="select1" tabindex="0">
+              <option value="IT">IT</option>
+              <option value="Hospitality">Hospitality</option>
+            </select>
           </div>
         </div>
-        <hr>
-        <small>User Skills</small>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCskill">Skills</label>
-                <select id="inputskill"  formControlName="skills"  class="form-control">
-                    <option selected>Choose...</option>
-                    <option>Java</option>
-                    <option>React.js</option>
-                    <option>Angular</option>
-                    <option>Node.js</option>
-                  </select>
-              </div>
-        </div>
-        <button type="submit" class="btn btn-primary" (click)="saveProfile()">Save</button>
-      </form>
-</div>
 
+        <div class="search-form">
+          <a (click)="searchJobs()">Find job</a>
+        </div>
+      </form> -->
+      <div class="container" style="overflow:auto;max-height: 600px;" >
+
+        <div class="search-hero">
+          <input class="form-control" type="text" name="search" 
+          [(ngModel)]="searchText" autocomplete="off" placeholder="Please search job with keyword">
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center"
+            *ngFor="let list of jobLists | filter:searchText">
+            <div><h3>{{list.Designation}}</h3>
+            <span><small>{{list.salaryScale}}</small></span>
+            <span class="job_details"><small>{{list.location}}</small></span>
+            </div>
+          
+           
+            <span class="badge badge-custome-circle">
+              <img class="badge-custome-circle" src="{{list.comapany_logo}}" width="50" height="50"
+                alt="{{list.jobId}}" />    
+            </span>
+          
+          </li>
+          <!-- <label>Hospitality</label>
+          <li class="list-group-item d-flex justify-content-between align-items-center"
+            *ngFor="let list of jobLists">
+            <h3>{{list.Designation}}</h3>
+            <span class="badge">
+              <img class="badge-custome-circle" src="{{list.comapany_logo}}" width="50" height="50"
+                alt="{{list.jobId}}" />
+            </span>
+          </li> -->
+
+        </ul>
+      </div>
+
+    </div>
+    <div class="col-12" *ngIf="appliedJob === true">
+
+      <!-- <h3>applied jobs</h3>
+      <div class="container">
+
+        <form [formGroup]="usersProfileForm">
+          <small>User work experience</small>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputState">Job Title</label>
+              <select id="inputState" class="form-control" formControlName="jobTitle">
+                <option selected>Choose...</option>
+                <option>Front End developer</option>
+                <option>Back End Developer</option>
+                <option>Full stack Developer</option>
+                <option>MERN stack Developer</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">company</label>
+              <input type="text" formControlName="company" class="form-control" id="inputPassword4"
+                placeholder="company">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputindustry">Industry</label>
+              <select id="inputindustry" class="form-control" formControlName="industry">
+                <option selected>Choose...</option>
+                <option>Hospitality</option>
+                <option>Engineering</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCountry">Country</label>
+              <select id="inputCountry" class="form-control" formControlName="country">
+                <option selected>Choose...</option>
+                <option>United Arab Emirates</option>
+              </select>
+            </div>
+          </div>
+          <hr>
+          <small>User Education</small>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputhIGH5">Highlevel</label>
+              <input type="text" formControlName="highlevel" class="form-control" id="inputhIGH5"
+                placeholder="Highlevel">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputuniversity4">University</label>
+              <input type="text" formControlName="university" class="form-control" id="inputuniversity4"
+                placeholder="University">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPassword6">Date Completed</label>
+              <input type="date" formControlName="dateComplete" class="form-control" id="inputPassword6"
+                placeholder="Date completed">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputNationality">Nationality</label>
+              <select id="inputNationality" formControlName="nationality" class="form-control">
+                <option selected>Choose...</option>
+                <option>Indian</option>
+              </select>
+            </div>
+          </div>
+          <hr>
+          <small>User Skills</small>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCskill">Skills</label>
+              <select id="inputskill" formControlName="skills" class="form-control">
+                <option selected>Choose...</option>
+                <option>Java</option>
+                <option>React.js</option>
+                <option>Angular</option>
+                <option>Node.js</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="saveProfile()">Save</button>
+        </form>
+      </div> -->
+      <!-- <div class="container">
+        <div class="row">
+          <div class="search-hero">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+          </div>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Hero Name</th>
+              <th>Country</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let jobList of jobLists">
+              <td>{{jobList.Designation}}</td>
+              <td>{{jobList.location}}</td>
+              <td>{{jobList.CompanyName}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+      
+    </div>
+  </div>
+
+</div>

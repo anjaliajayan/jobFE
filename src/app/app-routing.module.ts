@@ -21,7 +21,11 @@ const routes: Routes = [
   children:[
     { path: '', redirectTo:'user-welcome', pathMatch: 'full' },  
     {path: 'user-welcome',component: UsersWelcomeComponent ,canActivate:[AuthGuard]},
-    {path: 'user-profile',component: UserProfileComponent ,canActivate:[AuthGuard],data:{roles:[Role.User]}},
+    {path: 'user-profile',component: UserProfileComponent ,canActivate:[AuthGuard],data:{roles:[Role.User]},
+  children:[
+    {path: 'job-search',component: UsersWelcomeComponent ,canActivate:[AuthGuard]},
+    {path: 'applied-jobs',component: UsersWelcomeComponent ,canActivate:[AuthGuard]}
+  ]},
     {path: 'admin-profile',component: AdminPortalComponent ,canActivate:[AuthGuard],data:{roles:[Role.Admin]}}
   ]
 },

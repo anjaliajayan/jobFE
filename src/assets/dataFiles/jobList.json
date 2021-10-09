@@ -1,0 +1,57 @@
+
+[
+    {
+        "jobId": "1",
+        "Designation": "Full stack developer",
+        "CompanyName": "Siemens",
+        "comapany_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFBe-9YevuyqPwUmPhpvLJ9j6aWauz-Vq8xt5T&s=0",
+        "salaryScale": "6000 AED - 10000 AED",
+        "location": "Abudhabi,UAE",
+        "industry":"IT"
+      },
+      {
+        "jobId": "2",
+        "Designation": "Front end developer",
+        "CompanyName": "Al-Futtain",
+        "comapany_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDvo-dYb-B4kopXpFEHFN9L1GwM31Bv8Mpyg8q&s=0",
+        "salaryScale": "5000 AED - 7000 AED",
+        "location": "Dubai,UAE",
+        "industry":"IT"
+      },
+      {
+        "id": "3",
+        "Designation": "Junior developer",
+        "CompanyName": "AlphaSites",
+        "comapany_logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAnFBMVEX////8+/v3iBP2ggD29fX3ix+5uLi2tbXAv7/x8PBXVVXg39+qMSqkGxXNl5X5qGmenJxnZmbHxsbn5ubU09N0c3OQj49tbGz50Lb5pWP+8OnLjIXgvrv6nU/7zKz27uyzPTWrqqrnzsp9e3rZraeuOiz/8OP+x6M3NjVDQUFfXV3RnJW4V03FjInl1dj1eQCrLCLAeHOhBADx4+FasOQOAAABM0lEQVRIie2R21LDIBCGF5MSCG0lsJCqrRWxjUbTk+//bm5i25lavfCe74KBb/ZfTgCJRCKR+AM2u7sl7v+be5gvbojs8STkMOb5VeWlWj5RcDQafQe1BlYNnvNjQXAO6mFW8HNb4nk1X2RZdgxGB8yBRQOiEBJUkUNJWkHOreSk8tIAir70ZTVfN02zyGa0wCIgc+zV6GAqfAO0LfgooYUWYyEclrI1xmMffF99dF23abZ90EfnwbEIrDYCahZ8ycCWslaamgpS4CCvwhDcjcfj3b7ZrmG4Xks7lqC84VCrSEsJ0VayhVAIDhV1owspCk5PQRKWDs9VYLX3DBE0aK/z6ATN0OuiVwwdOt3vOD1MJpPDvjn/Bj27u/40gU5dms9uSmwunL0OKvGLTCQSicRPvgCkMhWXhqeOpAAAAABJRU5ErkJggg==",
+        "salaryScale": "3000 AED - 5000 AED",
+        "location": "Dubai,UAE",
+        "industry":"IT"
+      },
+      {
+        "jobId": "4",
+        "Designation": "Assistant Restaurant Managers",
+        "CompanyName": "Radisson",
+        "comapany_logo": "https://www.catererglobal.com/companylogos/8cf1d58f15254c5e823c25702a4d1fea.png",
+        "salaryScale": "6000 AED - 10000 AED",
+        "location": "Ras Al-Khaimah,UAE",
+        "industry":"Hospitality"
+      },
+      {
+        "jobId": "5",
+        "Designation": "Outlet Supervisors",
+        "CompanyName": "Radisson",
+        "comapany_logo": "https://www.catererglobal.com/companylogos/8cf1d58f15254c5e823c25702a4d1fea.png",
+        "salaryScale": "5000 AED - 7000 AED",
+        "location": "Ras Al-Khaimah,UAE",
+        "industry":"Hospitality"
+      },
+      {
+        "id": "6",
+        "Designation": "Assistant Manager - Health and Safety -(UAE National)",
+        "CompanyName": "Burj Al Arab",
+        "comapany_logo": "https://www.catererglobal.com/companylogos/8cf1d58f15254c5e823c25702a4d1fea.png",
+        "salaryScale": "5000 AED - 10000 AED",
+        "location": "Dubai,UAE",
+        "industry":"Hospitality"
+      }
+  ]

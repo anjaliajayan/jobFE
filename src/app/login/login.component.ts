@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
   }
   inIntForm() {
     this.loginForm = this.fb.group({
-      userName: ['',Validators.required],
-      passWord: ['',Validators.required]
+      email: ['',Validators.required],
+      password: ['',Validators.required]
     })
   }
 
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     } else {
       console.log(this.loginForm.value);
       
-      this.authSubscription = this.authenticationService.login(this.loginForm.value.userName ,this.loginForm.value.passWord)
+      this.authSubscription = this.authenticationService.login(this.loginForm.value.email ,this.loginForm.value.password)
         .subscribe((response: any) =>{
           if(response.status === true){
             this.toasterService.success(`${response.msg}`);
