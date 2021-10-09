@@ -2,7 +2,6 @@
   <div class="row justify-content-center sub-tabs">
     <button class="tabs-btn" type="button" (click)="switchTabs('profile')">Users Profile</button>
     <button class="tabs-btn" type="button" (click)="switchTabs('search')">Job Search</button>
-    <button class="tabs-btn" type="button" (click)="switchTabs('applied')">Applied Jobs</button>
   </div>
   <div class="row">
     <div class="col-12" *ngIf="profiletabShow === true">
@@ -96,23 +95,27 @@
           <input class="form-control" type="text" name="search" 
           [(ngModel)]="searchText" autocomplete="off" placeholder="Please search job with keyword">
         </div>
+     
         <ul class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-center"
             *ngFor="let list of jobLists | filter:searchText">
-            <div><h6>{{list.Designation}}</h6>
-            <span><small>{{list.salaryScale}}</small></span>
-            <span class="job_details"><small>{{list.location}}</small></span>
+            <div><h6>Designation:{{list.title}}</h6>
+            <span><small>Company:{{list.company}}</small></span>
+            <br>
+            <span class="job_details"><small>Job Description:{{list.description}}</small></span>
             </div>  
-            <span class="badge badge-custome-circle">
+            <button type="button" class="btn">Apply</button> 
+            <!-- <span class="badge badge-custome-circle">
               <img class="badge-custome-circle" src="{{list.comapany_logo}}" width="50" height="50"
-                alt="{{list.jobId}}" />    
+                alt="{{list.jobId}}" /> 
+              
+            </span> -->
+            <span class="badge badge-custome-circle">
+           
             </span>
           </li>
         </ul>
       </div>
-    </div>
-    <div class="col-12" *ngIf="appliedJob === true">
-<!-- applied job list content here -->
     </div>
   </div>
 </div>

@@ -1,0 +1,25 @@
+.row.justify-content-center.sub-tabs {
+    position: absolute;
+    top: -14%;
+    left: 10%;
+    right: 0;
+}
+button{
+    border:none;
+    background: linear-gradient(to right, #fb5283,#ff3527);
+}
+button.tabs-btn{
+    padding: 5px;
+    margin-left: 10px;
+    color: #fff;
+    font-size: 10px;
+}
+.search-hero {
+    max-width: 500px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin:auto;
+  }
+  .jobCreateTab{
+      padding:70px
+  }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import * as jobList from '../../assets/dataFiles/jobList.json';
+import { AdminService } from '../_services/admin.service';
+import { ProfileService } from '../_services/profile.service';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -9,19 +13,24 @@ import * as jobList from '../../assets/dataFiles/jobList.json';
 })
 export class UserProfileComponent implements OnInit {
   usersProfileForm:FormGroup;
-  jobSearchForm:FormGroup;
   profiletabShow:boolean=true;
   jobSearchTab:boolean;
   appliedJob:boolean;
   jobLists=[];
   searchText;
-  constructor(private fb:FormBuilder) { }
+  loginedId: any;
+  profileSubscription: Subscription;
+  getAllJobsSuscription:Subscription;
+  constructor(private fb:FormBuilder,
+    private profileService :ProfileService,
+    private toasterService:ToastrService,
+    private adminService:AdminService) { }
 
   ngOnInit(): void {
-    this.jobLists=jobList.default;
-  
+  this.loginedId=JSON.parse(localStorage.getItem('user')).id;
     this.inItForm();
-    this.initJobSearchForm();
+    this.getAllCreatedJobs();
+
   }
   inItForm(){
     this.usersProfileForm =this.fb.group({
@@ -33,20 +42,29 @@ export class UserProfileComponent implements OnInit {
       university:[''],
       dateComplete:[''],
       nationality:[''],
-      skills:['']
+      skills:[''],
+      userId:this.loginedId
     });
   }
-  initJobSearchForm (){
-    this.jobSearchForm = this.fb.group({
-     jobKeyWord:[''] ,
-     jobField:['IT']
+
+  getAllCreatedJobs =()=>{
+    this.getAllJobsSuscription=this.adminService.getAllCreatedJobs().subscribe((res:any)=>{
+      this.jobLists = res;
     })
   }
+
   saveProfile =()=>{
-    console.log(this.usersProfileForm.value);
+    this.profileSubscription = this.profileService.profileSave(this.usersProfileForm.value).subscribe((res:any)=>{
+      if(res.status === true){
+       this.toasterService.success('Profile Saved successfully');
+      }else{
+        this.toasterService.error('Please try again later');
+      }
+    })
     
   }
 
+  // for tab switching
   switchTabs =(tabs:string)=>{
     switch (tabs) {
       case 'profile':
@@ -63,7 +81,6 @@ export class UserProfileComponent implements OnInit {
           this.profiletabShow = false;
           this.jobSearchTab = false;
           this.appliedJob= true;
-
             break;
       default:
         break;
@@ -71,22 +88,9 @@ export class UserProfileComponent implements OnInit {
 
   }
 
-  searchJobs =() =>{
-    console.log(this.jobSearchForm.value);
-    let tempjobField=this.jobSearchForm.value.jobField;
-    console.log(tempjobField);
-    switch (tempjobField) {
-      case 'IT':
-        this.jobLists=  [...this.jobLists.filter(e=> e.designation === 'Junior developer')];
-      
-        
-        break;
-        case 'Hospitality':
-       
-          break;
-      default:
-        break;
-    }
-  
+  //Use for any custom cleanup that needs to occur when the instance is destroyed.
+  ngOnDestroy() {
+    if (this.profileSubscription)
+      this.profileSubscription.unsubscribe();
   }
 }

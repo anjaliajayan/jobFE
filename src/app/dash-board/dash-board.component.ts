@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../_services/auth.service';
 import { AuthenticationService } from '../_services/authentication.service';
-import { LoginService } from '../_services/login.service';
 
 @Component({
   selector: 'app-dash-board',
@@ -14,8 +12,7 @@ export class DashBoardComponent implements OnInit {
   logoutSubscription:Subscription;
   loginedRole: any;
   constructor(private router:Router,
-    private authService:AuthenticationService,
-    private loginService:LoginService) { }
+    private authService:AuthenticationService) { }
 
   ngOnInit(): void {
     this.loginedRole=JSON.parse(localStorage.getItem('user')).role;
@@ -25,6 +22,7 @@ export class DashBoardComponent implements OnInit {
   logout =()=>{
     this.authService.logout();
   }
+  
   togglemenu =()=>{
     var menuList = document.getElementById('menu-list');
     menuList.style.maxHeight ='0px';

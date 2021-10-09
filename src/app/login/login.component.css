@@ -8724,7 +8724,7 @@ h5,
 .login-wrap .icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(to right, #fb5283,#ff3527);
+  background: linear-gradient(to right, #fb5283, #ff3527);
   border-radius: 50%;
   font-size: 30px;
   margin: 0 auto;
@@ -8924,11 +8924,15 @@ h5,
 .login-section{
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to right, #fff,#ff3527);
-  /* background-image: url('./../../assets/images/skyloov-bg'); */
+  /* background: linear-gradient(to right, #fff,#ff3527); */
+  background-image: url('./../../assets/images/h1_hero.jpg');
   background-size:cover;
 }
 .validations {
   color: red;
   font-size: x-small;
+}
+.portal_logo{
+  border-radius: 150px;
+  margin-top: 10px;
 }

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({ providedIn: 'root' })
-export class LoginService {
+export class ProfileService {
     url= "http://localhost:3000";
   
 
@@ -13,17 +13,10 @@ export class LoginService {
         private http: HttpClient
     ) {}
 
-    login(payload:any){
-        
-        return this.http.post(`${this.url}/users/login`,payload);
-    }
-    logout() {
-        return this.http.post(`${this.url}/api/logout`,"logout");
+    public profileSave(payload) {
+        return this.http.post(`${this.url}/user/profile`,payload);
      
     }
-
     
-
-
   
 }

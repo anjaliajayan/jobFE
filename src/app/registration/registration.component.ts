@@ -42,11 +42,7 @@ export class RegistrationComponent implements OnInit {
     return this.registerForm.get(controlName).invalid && this.registerForm.get(controlName).touched;
 
   }
-  registerHandler =() =>{
-    console.log(this.registerForm.value);
-    
-    // alert(JSON.parse(this.registerForm.value));
-    
+  registerHandler =() =>{ 
     if(this.registerForm.invalid !== true){
 
     this.registerSubscribtion = this.registerService.register(this.registerForm.value).subscribe((res:any)=>{

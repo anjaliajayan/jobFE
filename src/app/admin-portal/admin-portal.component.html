@@ -1,1 +1,86 @@
-<p>admin-portal works!</p>
+<div class="container-fluid">
+    <div class="row justify-content-center sub-tabs">
+      <button class="tabs-btn" type="button" (click)="switchTabs('create')">Create a Job</button>
+      <button class="tabs-btn" type="button" (click)="switchTabs('createdjobs')">Created job lists</button>
+      <button class="tabs-btn" type="button" (click)="switchTabs('registeredUsers')">Registered Users List</button>
+    </div>
+    <div class="row">
+      <div class="col-12" *ngIf="createTabShow === true">
+   
+        <div class="container jobCreateTab" >
+            <h6>Create a job here</h6>
+          <form [formGroup]="createJobForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputState">Job Title</label>
+                <select id="inputState" class="form-control" formControlName="title">
+                  <option selected>Choose...</option>
+                  <option>Front End developer</option>
+                  <option>Back End Developer</option>
+                  <option>Full stack Developer</option>
+                  <option>MERN stack Developer</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword44">company</label>
+                <input type="text" formControlName="company_name" class="form-control" id="inputPassword44"
+                  placeholder="company">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+              <textarea formControlName="description" placeholder="Write job description"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="createjobs()">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-12" *ngIf="createdjobListShow === true">
+        <div class="container" style="overflow:auto;max-height: 600px;" >
+          <div class="search-hero">
+            <input class="form-control" type="text" name="search" 
+            [(ngModel)]="searchjob" autocomplete="off" placeholder="Please search job with keyword">
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center"
+              *ngFor="let createdJobList of createdJobLists | filter:searchjob">
+              <div><h6>{{createdJobList.title}}</h6>
+                <span class="job_details"><small>Descriptions:{{createdJobList.description}}</small></span> 
+              <br>
+              <button type="button" class="btn">Edit</button>  
+              </div> 
+              <span><small>company : {{createdJobList.company}}</small></span> 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12" *ngIf="registeredUsers === true" >
+        <div class="container" style="overflow:auto;max-height: 600px;" >
+            <div class="search-hero">
+              <input class="form-control" type="text" name="search" 
+              [(ngModel)]="searchUser" autocomplete="off" placeholder="Please search users with name">
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center"
+                *ngFor="let regJobList of regJobLists | filter:searchUser">
+                <div><h6>{{regJobList.name}}</h6>
+                  <span class="job_details"><small>Email:{{regJobList.email}}</small></span> 
+                <br>
+                <span class="job_details"><small>gender:{{regJobList.gender}}</small></span> 
+                <br>  
+                 <span class="job_details"><small>created:{{regJobList.createdAt | date:'medium'}}</small></span> 
+                <br>
+                <span class="job_details"><small>updated:{{regJobList.updatedAt | date:'medium'}}</small></span> 
+                <br>
+                <span><small>contact : {{regJobList.contact}}</small></span> 
+                </div> 
+                <!-- <button type="button" class="btn">Edit</button>  -->
+             
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  

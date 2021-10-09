@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../_services/login.service';
-import { first } from 'rxjs/operators';
-import { AuthService } from '../_services/auth.service';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from '../_services/authentication.service';
@@ -18,8 +15,6 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
   authSubscription: Subscription;
   constructor(private fb: FormBuilder,
-    private loginService: LoginService,
-    private activateRoute: ActivatedRoute,
     private router: Router,
     private toasterService:ToastrService,
     private authenticationService: AuthenticationService) { }
@@ -43,9 +38,7 @@ export class LoginComponent implements OnInit {
   submitHandler() {
     if (this.loginForm.status === "INVALID") {
       return this.submitted = true;
-    } else {
-      console.log(this.loginForm.value);
-      
+    } else { 
       this.authSubscription = this.authenticationService.login(this.loginForm.value.email ,this.loginForm.value.password)
         .subscribe((response: any) =>{
           if(response.status === true){

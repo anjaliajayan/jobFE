@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { LoginService } from '../_services/login.service';
+import { LoginService } from '../_services/profile.service';
 
 
 
@@ -19,7 +19,6 @@ export class ErrorInterceptor implements HttpInterceptor {
             }
 
             const error = err.error?.message || err.statusText;
-            console.error(err);
             return throwError(error);
         }))
     }
