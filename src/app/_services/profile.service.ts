@@ -14,7 +14,7 @@ export class ProfileService {
     ) {}
 
     public profileSave(payload) {
-        return this.http.post(`${this.url}/user/profile`,payload);
+        return this.http.post(`${this.url}/profile/save`,payload);
      
     }
     

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
-import * as jobList from '../../assets/dataFiles/jobList.json';
 import { AdminService } from '../_services/admin.service';
 import { ProfileService } from '../_services/profile.service';
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -35,15 +35,16 @@ export class UserProfileComponent implements OnInit {
   inItForm(){
     this.usersProfileForm =this.fb.group({
       jobTitle:['Choose...'],
-      company:[''],
+      current_company:[''],
       industry:['Choose...'],
       country:[''],
       highlevel:[''],
       university:[''],
-      dateComplete:[''],
+      date_completed:[''],
       nationality:[''],
       skills:[''],
-      userId:this.loginedId
+      userId:this.loginedId,
+      application_num:uuidv4()
     });
   }
 
@@ -56,9 +57,9 @@ export class UserProfileComponent implements OnInit {
   saveProfile =()=>{
     this.profileSubscription = this.profileService.profileSave(this.usersProfileForm.value).subscribe((res:any)=>{
       if(res.status === true){
-       this.toasterService.success('Profile Saved successfully');
+       this.toasterService.success(`${res.message}`);
       }else{
-        this.toasterService.error('Please try again later');
+        this.toasterService.error(`${res.message}`);
       }
     })
     
