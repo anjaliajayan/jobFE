@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
   inIntForm() {
     this.loginForm = this.fb.group({
-      email: ['',Validators.required],
+      email: ['',[Validators.required,Validators.pattern('^[A-Za-z0-9._&%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,9}$')]],
       password: ['',Validators.required]
     })
   }
@@ -41,17 +41,20 @@ export class LoginComponent implements OnInit {
     } else { 
       this.authSubscription = this.authenticationService.login(this.loginForm.value.email ,this.loginForm.value.password)
         .subscribe((response: any) =>{
+          console.log(response);
+          
           if(response.status === true){
-            this.toasterService.success(`${response.msg}`);
+            this.toasterService.success(`${response.message}`);
             localStorage.setItem('token',response.token);
             this.router.navigateByUrl('dashBoard');
           }else{
-            this.toasterService.error("Please try again few minutes later,response is incomplete");
+            this.toasterService.error(`${response.message}`);
           }
       
         },
         (httpErrorResponse) => {
           console.log(httpErrorResponse);
+          this.toasterService.error(`${httpErrorResponse.error.message}`);
           
         })
      

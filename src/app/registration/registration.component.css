@@ -97,3 +97,7 @@
     margin-bottom: -15%;
     color: #495057;
 }
+.text-valid{
+    color: red;
+    font-size: xx-small;
+}
